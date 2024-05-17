@@ -1,5 +1,6 @@
 package org.booking;
 
+import common.ElementPresenceWait;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -8,9 +9,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import pages.FlightSearchPage;
 
-//import static org.booking.Hooks.androidDriver;  can use this instead of Hooks.
-
-public class StepDefsFlightSearch {
+public class FlightSearchStepDefs {
 
     FlightSearchPage flightSearchPage = new FlightSearchPage();
 
@@ -31,7 +30,7 @@ public class StepDefsFlightSearch {
     }
 
     @And("Select dates")
-    public void selectDates() {
+    public void selectDates() throws InterruptedException {
         flightSearchPage.selectDates();
     }
 
@@ -41,20 +40,20 @@ public class StepDefsFlightSearch {
     }
 
     @And("perform a search")
-    public void performASearch() {
+    public void performASearch() throws InterruptedException {
         flightSearchPage.performSearch();
+        Thread.sleep(15000);
     }
 
     @Then("the search results are displayed")
-    public void theSearchResultsAreDisplayed() throws InterruptedException {
-        Thread.sleep(10000);
-        Thread.sleep(10000);
-        Assert.assertTrue(Hooks.androidDriver.findElement(By.xpath("//div[1]/div/button/div/div[2]/div/button/span[@class='Button-module__text___YLOOX'][text()='View details ']")).isDisplayed());
+    public void theSearchResultsAreDisplayed(){
+        ElementPresenceWait.waitUntilVisible(Hooks.androidDriver, Hooks.androidDriver.findElement(By.xpath("//button[@aria-label='View details  ']")));
+        Assert.assertTrue(Hooks.androidDriver.findElement(By.xpath("//button[@aria-label='View details  ']")).isDisplayed());
 
     }
 
-    @And("Flights search is displayed")
-    public void flightsSearchIsDisplayed() {
+    @And("Flights is selected")
+    public void flightsIsSelected() {
         flightSearchPage.flightSearchDisplayed();
 
     }

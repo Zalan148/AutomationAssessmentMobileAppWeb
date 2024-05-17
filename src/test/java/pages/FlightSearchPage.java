@@ -1,9 +1,11 @@
 package pages;
 
+import common.ElementPresenceWait;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import org.booking.Hooks;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class FlightSearchPage
 {
@@ -17,10 +19,10 @@ public class FlightSearchPage
     }
 
     public void departureLondon() {
-
-        Hooks.androidDriver.findElement((By.xpath("//button[@data-ui-name='input_location_from_segment_0']"))).click();
-
-        Hooks.androidDriver.pressKey(new KeyEvent(AndroidKey.DEL));
+        ElementPresenceWait.waitUntilVisible(Hooks.androidDriver, Hooks.androidDriver.findElement(By.xpath("//button[@data-ui-name='input_location_from_segment_0']")));
+        WebElement location = ElementPresenceWait.waitUntilClickable(Hooks.androidDriver, Hooks.androidDriver.findElement(By.xpath("//button[@data-ui-name='input_location_from_segment_0']")));
+        location.findElement(By.xpath("//button[@data-ui-name='input_location_from_segment_0']")).click();
+        ElementPresenceWait.waitUntilVisible(Hooks.androidDriver, Hooks.androidDriver.findElement(By.xpath("//*[@aria-controls='flights-searchbox_suggestions']")));
         Hooks.androidDriver.findElement(By.xpath("//*[@aria-controls='flights-searchbox_suggestions']")).sendKeys("London");
         Hooks.androidDriver.pressKey((new KeyEvent(AndroidKey.TAB)));
         Hooks.androidDriver.pressKey(new KeyEvent(AndroidKey.ENTER));
@@ -33,10 +35,28 @@ public class FlightSearchPage
         Hooks.androidDriver.pressKey(new KeyEvent(AndroidKey.ENTER));
     }
 
-    public void selectDates() {
+    public void selectDates() throws InterruptedException {
         Hooks.androidDriver.findElement(By.xpath("//button[@data-ui-name='button_date_segment_0']")).click();
-        Hooks.androidDriver.findElement(By.xpath("//span[@data-ui-name='calendar_cell_2024-04-19']")).click();
-        Hooks.androidDriver.findElement(By.xpath("//span[@data-ui-name='calendar_cell_2024-04-26']")).click();
+        Thread.sleep(5000);
+        Hooks.androidDriver.pressKey(new KeyEvent(AndroidKey.TAB));
+        Thread.sleep(5000);
+
+        int i = 0;
+        while (i < 2) {
+            Hooks.androidDriver.pressKey(new KeyEvent(AndroidKey.DPAD_DOWN));
+            Thread.sleep(5000);
+            i++;
+        }
+        Hooks.androidDriver.pressKey(new KeyEvent(AndroidKey.ENTER));
+        Thread.sleep(5000);
+        int y = 0;
+        while (y < 2) {
+            Hooks.androidDriver.pressKey(new KeyEvent(AndroidKey.DPAD_DOWN));
+            Thread.sleep(5000);
+            y++;
+        }
+        Hooks.androidDriver.pressKey(new KeyEvent(AndroidKey.ENTER));
+        Thread.sleep(5000);
         Hooks.androidDriver.findElement(By.xpath("//button[@data-ui-name='button_calendar_action_bar_done']")).click();
     }
 
@@ -49,6 +69,4 @@ public class FlightSearchPage
     public void performSearch() {
         Hooks.androidDriver.findElement(By.xpath("//button[@data-ui-name='button_search_submit']")).click();
     }
-
-
 }

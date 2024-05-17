@@ -7,7 +7,7 @@ Feature: FlightSearch
   @zalantest
   Scenario: Able to perform a flight search
     Given the Booking.com website is open
-    And Flights search is displayed
+    And Flights is selected
     And departure airport is London
     When I enter destination Hong Kong
     And Select dates
