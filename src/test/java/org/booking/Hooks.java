@@ -22,9 +22,9 @@ public class Hooks {
         options.setAutomationName(AutomationName.ANDROID_UIAUTOMATOR2);
         options.setDeviceName("AnyDeviceName");
         options.noReset().withBrowserName("Chrome");
-        androidDriver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
+        androidDriver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), options);
         androidDriver.get("https://booking.com");
-        ElementPresenceWait.waitUntilVisible(Hooks.androidDriver, Hooks.androidDriver.findElement(By.xpath("//h2[text()='Manage cookie preferences']")));
+        ElementPresenceWait.waitUntilVisible(Hooks.androidDriver, Hooks.androidDriver.findElement(By.xpath("//h2[text()='Manage cookie settings']")));
         ElementPresenceWait.waitUntilVisible(Hooks.androidDriver, Hooks.androidDriver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler'][text()='Accept']")));
         WebElement acceptBtn = ElementPresenceWait.waitUntilClickable(Hooks.androidDriver, Hooks.androidDriver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler'][text()='Accept']")));
         acceptBtn.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler'][text()='Accept']")).click();

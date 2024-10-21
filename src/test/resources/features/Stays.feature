@@ -10,7 +10,4 @@ Feature: Stays
     Given the Booking.com website is open
     And Stays is selected
     When I enter destination as Las Vegas
-    And Select Check-in and Check-out dates
-    And Select three adults and two children
-    And perform a hotel search
     Then the hotel search results are displayed

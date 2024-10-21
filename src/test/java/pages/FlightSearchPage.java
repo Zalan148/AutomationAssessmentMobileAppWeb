@@ -13,9 +13,9 @@ public class FlightSearchPage
         Hooks.androidDriver.findElement(By.xpath("//a[@aria-label='Booking.com']  ")).isDisplayed();
     }
 
-    public void flightSearchDisplayed() {
+    public void flightSearchDisplayed() throws InterruptedException {
         Hooks.androidDriver.findElement(By.xpath("//span[text()='Flights']")).click();
-        Hooks.androidDriver.findElement(By.xpath("//h1[text()='Compare and book flights with ease']")).isDisplayed();
+        Thread.sleep(10000);
     }
 
     public void departureLondon() {

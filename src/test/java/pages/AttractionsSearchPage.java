@@ -16,10 +16,6 @@ public class AttractionsSearchPage {
         Hooks.androidDriver.findElement(By.xpath("//input[@data-testid='search-input-field']")).click();
         Hooks.androidDriver.findElement(By.xpath("//input[@data-testid='search-input-field']")).sendKeys("London");
         Thread.sleep(5000);
-        Hooks.androidDriver.pressKey(new KeyEvent(AndroidKey.TAB));
-        Thread.sleep(5000);
-        Hooks.androidDriver.pressKey(new KeyEvent(AndroidKey.TAB));
-        Thread.sleep(5000);
         Hooks.androidDriver.pressKey(new KeyEvent(AndroidKey.ENTER));
     }
 

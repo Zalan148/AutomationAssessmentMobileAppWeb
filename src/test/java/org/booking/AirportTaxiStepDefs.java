@@ -16,13 +16,15 @@ public class AirportTaxiStepDefs {
         airportTaxiSearchPage.airportTaxisSelected();
     }
 
+    //no search results are displayed so test will eventually fail
     @When("pick up location is entered")
-    public void pickUpLocationIsEntered() throws InterruptedException {
+    public void pickUpLocationIsEntered(){
         airportTaxiSearchPage.pickUpLocation();
     }
 
+    //no search results are displayed so test will eventually fail
     @And("destination is entered")
-    public void destinationIsEntered() throws InterruptedException {
+    public void destinationIsEntered(){
         airportTaxiSearchPage.destinationEntered();
     }
 
@@ -41,6 +43,7 @@ public class AirportTaxiStepDefs {
         airportTaxiSearchPage.searchAirportTaxi();
     }
 
+    //no search results are displayed so test will eventually fail
     @Then("the airport taxi search results are displayed")
     public void theAirportTaxiSearchResultsAreDisplayed() {
         ElementPresenceWait.waitUntilVisible(Hooks.androidDriver, Hooks.androidDriver.findElement(By.xpath("//div[text()='The latest prices from our trusted partners']")));

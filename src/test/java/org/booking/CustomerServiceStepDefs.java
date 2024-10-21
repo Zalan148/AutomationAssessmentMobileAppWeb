@@ -24,7 +24,6 @@ public class CustomerServiceStepDefs {
     @And("select Baggage and seats")
     public void selectBaggageAndSeats() throws InterruptedException {
         customerServicePage.selectBaggageAndSeats();
-
     }
 
     @Then("FAQs for Baggage and seats is displayed")

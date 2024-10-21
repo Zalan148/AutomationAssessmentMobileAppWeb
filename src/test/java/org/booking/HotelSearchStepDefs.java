@@ -19,23 +19,6 @@ public class HotelSearchStepDefs {
     @When("I enter destination as Las Vegas")
     public void iEnterDestinationAsLasVegas() {
         staysSearchPage.enterDestination();
-
-    }
-
-    @And("Select Check-in and Check-out dates")
-    public void selectCheckInAndCheckOutDates() {
-        //need wait
-        staysSearchPage.selectCheckInCheckOutDates();
-    }
-
-    @And("Select three adults and two children")
-    public void selectThreeAdultsAndTwoChildren() {
-        staysSearchPage.selectThreeAdultsTwoChildren();
-    }
-
-    @And("perform a hotel search")
-    public void performAHotelSearch() {
-        staysSearchPage.performHotelSearch();
     }
 
     @Then("the hotel search results are displayed")

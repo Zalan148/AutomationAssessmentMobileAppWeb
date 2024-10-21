@@ -47,14 +47,13 @@ public class FlightSearchStepDefs {
 
     @Then("the search results are displayed")
     public void theSearchResultsAreDisplayed(){
-        ElementPresenceWait.waitUntilVisible(Hooks.androidDriver, Hooks.androidDriver.findElement(By.xpath("//button[@aria-label='View details  ']")));
-        Assert.assertTrue(Hooks.androidDriver.findElement(By.xpath("//button[@aria-label='View details  ']")).isDisplayed());
+        ElementPresenceWait.waitUntilVisible(Hooks.androidDriver, Hooks.androidDriver.findElement(By.xpath("//div[text()='Sort']")));
+        Assert.assertTrue(Hooks.androidDriver.findElement(By.xpath("//div[text()='Sort']")).isDisplayed());
 
     }
 
     @And("Flights is selected")
-    public void flightsIsSelected() {
+    public void flightsIsSelected() throws InterruptedException {
         flightSearchPage.flightSearchDisplayed();
-
     }
 }

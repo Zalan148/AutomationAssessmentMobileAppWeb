@@ -12,23 +12,19 @@ public class AirportTaxiSearchPage {
         Hooks.androidDriver.findElement(By.xpath("//span[text()='Airport taxis']")).click();
     }
 
-    public void pickUpLocation() throws InterruptedException {
+    public void pickUpLocation() {
         ElementPresenceWait.waitUntilVisible(Hooks.androidDriver, Hooks.androidDriver.findElement(By.xpath("//input[@id='pickupLocation']")));
-        Hooks.androidDriver.findElement(By.xpath("//input[@id='pickupLocation']")).sendKeys("London Heathrow");
-        Thread.sleep(5000);
+        Hooks.androidDriver.findElement(By.xpath("//input[@id='pickupLocation']")).sendKeys("Heathrow Airport" + "");
         Hooks.androidDriver.pressKey(new KeyEvent(AndroidKey.ENTER));
     }
 
-    public void destinationEntered() throws InterruptedException {
-        Hooks.androidDriver.findElement(By.xpath("//input[@id='dropoffLocation']")).sendKeys("Edinburgh Airport");
-        Thread.sleep(5000);
+    public void destinationEntered() {
+        Hooks.androidDriver.findElement(By.xpath("//input[@id='dropoffLocation']")).sendKeys("Edinburgh");
         Hooks.androidDriver.pressKey(new KeyEvent(AndroidKey.ENTER));
         Hooks.androidDriver.hideKeyboard();
     }
 
     public void dateEntered() {
-       // ElementPresenceWait.waitUntilVisible(Hooks.androidDriver, Hooks.androidDriver.findElement(By.xpath("//input[@id='pickupLocation']")));
-
         Hooks.androidDriver.findElement(By.xpath("//button[@aria-label='pickup date input field']")).click();
         Hooks.androidDriver.findElement(By.xpath("//*[@data-test='rw-calendar__next']")).click();
         Hooks.androidDriver.findElement(By.xpath("//*[@data-test='rw-calendar__next']")).click();
