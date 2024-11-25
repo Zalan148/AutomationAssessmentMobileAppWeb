@@ -16,3 +16,11 @@ Android mobile device used and website tested is Booking.com
 12) Might need to include a configuration settings file in the folder .android
 13) Path to android SDK location will need to be added to environment variables
 14) Highlight TestRunner class -> right click 'Run TestRunner'
+
+If only need to run tests do following:
+1) Launch Intellij
+2) cmd prompt -> appium --address 127.0.0.1 --port 4723 --base-path /wd/hub --allow-insecure chromedriver_autodownload --use-plugins=element-wait
+3) Launch Android Studio and start virtual device
+4) In intellij right click TestRunner class -> Run 'TestRunner'. All scenarios tagged will run.
+5) For reporting of results go to target folder -> HTMLReports -> right click report.html -> open in explorer -> double click file
+
