@@ -5,7 +5,7 @@ Feature: Stays
 
 
 
-  @zalantest
+
   Scenario: Able to perform a hotel search
     Given the Booking.com website is open
     And Stays is selected

@@ -4,7 +4,7 @@ Feature: Attractions
   So that I can see the options available to me
 
 
-  @zalantest
+
   Scenario: Able to perform a city attractions search and sort by lowest price
     Given the Booking.com website is open
     And Attractions is selected

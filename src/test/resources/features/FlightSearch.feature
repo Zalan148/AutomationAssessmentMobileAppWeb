@@ -4,7 +4,7 @@ Feature: FlightSearch
   So that I can see the options available to me
 
 
-  @zalantest
+
   Scenario: Able to perform a flight search
     Given the Booking.com website is open
     And Flights is selected

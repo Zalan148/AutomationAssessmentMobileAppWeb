@@ -4,7 +4,7 @@ Feature: Customer Service
   So that I can get help for flights
 
 
-  @zalantest
+
   Scenario: Able to access Customer Service
     Given the Booking.com website is open
     When I select Contact Customer Service from the menu options
